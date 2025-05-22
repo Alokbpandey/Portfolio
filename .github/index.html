@@ -1,81 +1,876 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alok Pandey - Portfolio</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alok Pandey - Data Scientist & AI Enthusiast</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(13, 17, 23, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #64ffda;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #ccd6f6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            color: #64ffda;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #64ffda;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Page Sections */
+        .page {
+            min-height: 100vh;
+            padding: 6rem 2rem 4rem;
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Home Section */
+        .hero {
+            background: linear-gradient(135deg, #0d1117 0%, #21262d 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23ffffff10" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #64ffda, #66d9ef);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: slideInUp 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #8892b0;
+            animation: slideInUp 1s ease 0.2s both;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 3rem;
+            color: #ccd6f6;
+            animation: slideInUp 1s ease 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: slideInUp 1s ease 0.6s both;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: 2px solid #64ffda;
+            background: transparent;
+            color: #64ffda;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn:hover {
+            background: #64ffda;
+            color: #0d1117;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.3);
+        }
+
+        .btn-primary {
+            background: #64ffda;
+            color: #0d1117;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: #64ffda;
+        }
+
+        /* Experience Section */
+        .experience {
+            background: #f8f9fa;
+            padding: 6rem 2rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2d3748;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background: #64ffda;
+            display: block;
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #64ffda;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            width: 45%;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+
+        .timeline-year {
+            background: #64ffda;
+            color: #0d1117;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .company {
+            color: #64ffda;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 6rem 2rem;
+            background: #0d1117;
+            color: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: #21262d;
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid #30363d;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #64ffda, #66d9ef);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #64ffda;
+        }
+
+        .project-description {
+            color: #8892b0;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(100, 255, 218, 0.1);
+            color: #64ffda;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(100, 255, 218, 0.3);
+        }
+
+        /* Certifications Section */
+        .certifications {
+            padding: 6rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .cert-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid #64ffda;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .cert-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-provider {
+            color: #64ffda;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-date {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #0d1117 0%, #21262d 100%);
+            color: white;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            background: rgba(100, 255, 218, 0.1);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: #64ffda;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(100, 255, 218, 0.1);
+            border: 2px solid #64ffda;
+            border-radius: 50%;
+            color: #64ffda;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #64ffda;
+            color: #0d1117;
+            transform: translateY(-3px);
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            border-top: 4px solid #64ffda;
+        }
+
+        .skill-category h3 {
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-item {
+            background: #64ffda;
+            color: #0d1117;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Animations */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: rgba(13, 17, 23, 0.95);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+
+            .timeline-year {
+                left: 20px;
+                transform: none;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Floating particles effect */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: #64ffda;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #64ffda, #66d9ef);
+            z-index: 1001;
+            transition: width 0.3s ease;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Alok Pandey</h1>
-      <p>Data Scientist — AI Enthusiast — Project Developer</p>
-    </header>
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Alok Pandey</div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#" class="nav-link" data-page="home">Home</a></li>
+                <li><a href="#" class="nav-link" data-page="experience">Experience</a></li>
+                <li><a href="#" class="nav-link" data-page="projects">Projects</a></li>
+                <li><a href="#" class="nav-link" data-page="skills">Skills</a></li>
+                <li><a href="#" class="nav-link" data-page="certifications">Certifications</a></li>
+                <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-    <div class="glass-box left">
-      <h2>Objective</h2>
-      <p>Aspiring Data Scientist and AI Enthusiast with strong finance and machine learning foundations. Passionate about using advanced analytics, web scraping, and AI to solve real-world problems. Currently exploring innovations in data-driven solutions through deep learning and project development.</p>
-
-      <h2>Skills</h2>
-      <ul>
-        <li>Financial Data Analysis, Market Trend Analysis</li>
-        <li>Python, R, SQL, Tableau, Power BI, Matplotlib, Seaborn</li>
-        <li>Web Scraping (BeautifulSoup, Selenium)</li>
-        <li>Git, GitHub, DSA, AI/ML Development</li>
-      </ul>
-
-      <h2>Certifications</h2>
-      <ul>
-        <li>Data Science – Udemy</li>
-        <li>R Programming – Alison</li>
-        <li>Power BI – Great Learning</li>
-        <li>SQL & Tableau – LinkedIn Learning</li>
-        <li>ChatGPT Prompt Engineering – DeepLearning.AI</li>
-        <li>Google AI for Anyone – edX</li>
-      </ul>
-
-      <h2>Contact</h2>
-      <p>🏠 B 11 Flat no 2, RPS Savana, Faridabad, Haryana 121001, India</p>
-      <p>📞 +91 8851481064</p>
-      <p>📧 <a href="mailto:alokpand885148@gmail.com">alokpand885148@gmail.com</a></p>
-      <div class="socials">
-        <a href="https://www.linkedin.com/in/alok-pandey-b5a855213" target="_blank">LinkedIn</a> |
-        <a href="https://github.com/Alokbpandey" target="_blank">GitHub</a> |
-        <a href="https://www.kaggle.com/aloktantrik" target="_blank">Kaggle</a> |
-        <a href="https://huggingface.co/alokpandey" target="_blank">Hugging Face</a>
-      </div>
+    <!-- Home Page -->
+    <div id="home" class="page active hero">
+        <div class="particles" id="particles"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Alok Pandey</h1>
+                <p class="hero-subtitle">Data Scientist • AI Enthusiast • Project Developer</p>
+                <p class="hero-description">
+                    Aspiring Data Scientist and AI Enthusiast with a solid foundation in finance data analysis and machine learning. 
+                    Eager to apply advanced data analysis, web scraping, and machine learning skills in challenging AI projects. 
+                    Committed to contributing innovative data-driven solutions in a dynamic team environment.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary" onclick="showPage('projects')">
+                        <i class="fas fa-rocket"></i> View My Work
+                    </a>
+                    <a href="#" class="btn" onclick="showPage('contact')">
+                        <i class="fas fa-envelope"></i> Get In Touch
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="glass-box right">
-      <h2>Experience</h2>
-      <ul>
-        <li><strong>Prompt Engineer | NVIDIA</strong> <br />2024</li>
-        <li><strong>Prompt Engineer | Scale AI</strong> <br />2023</li>
-        <li><strong>Prompt Engineer (Finance) | Soul AI</strong> <br />2023</li>
-        <li><strong>Financial Consultant | ICICI Prudential</strong> <br />2022</li>
-      </ul>
-
-      <h2>Education</h2>
-      <ul>
-        <li>BCom – University of Delhi (2022, 70%)</li>
-        <li>12th Grade – MGM Hr. Sec. School, Raipur (85%)</li>
-      </ul>
-
-      <h2>Projects</h2>
-      <ul>
-        <li><strong>Skin Age & Gender Prediction:</strong> CNN-based model on skin images.</li>
-        <li><strong>Body Part Prediction Model:</strong> Transfer learning for age/gender from any body part.</li>
-        <li><strong>AI Image Detection:</strong> Classifies AI-generated images using DL and metadata.</li>
-        <li><strong>Advanced Web Scraper:</strong> GUI-based tool using BeautifulSoup and Selenium.</li>
-        <li><strong>Malaria Detection:</strong> High-accuracy TensorFlow model for microscopic images.</li>
-        <li><strong>Course Recommender:</strong> AI-driven aggregator for personalized course suggestions.</li>
-      </ul>
+    <!-- Experience Page -->
+    <div id="experience" class="page experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-content">
+                        <h3 class="job-title">Prompt Engineer</h3>
+                        <p class="company">NVIDIA</p>
+                        <p>Developed and optimized prompts for various AI models. Enhanced AI capabilities and user interaction through advanced prompt engineering techniques.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3 class="job-title">Prompt Engineer</h3>
+                        <p class="company">Scale AI</p>
+                        <p>Specialized in developing and refining prompts for AI applications. Worked on integrating GPT APIs with real-world applications, improving performance and usability.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3 class="job-title">Prompt Engineer in Finance</h3>
+                        <p class="company">Soul AI</p>
+                        <p>Specialized in developing AI-driven prompts for financial analysis. Worked collaboratively with data science teams to integrate AI in financial decision-making.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2022</div>
+                    <div class="timeline-content">
+                        <h3 class="job-title">Financial Consultant</h3>
+                        <p class="company">ICICI Prudential Direct Channel, India</p>
+                        <p>Provided financial planning and investment strategies to clients. Led a team to achieve top-ranking in December.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <footer>
-    © 2025 Alok Pandey. All rights reserved.
-  </footer>
-</body>
-</html>
+    <!-- Projects Page -->
+    <div id="projects" class="page projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3 class="project-title">Skin Age and Gender Prediction Model</h3>
+                    <p class="project-description">
+                        Developed a deep learning model capable of predicting age and gender from images of skin. 
+                        Achieved high accuracy by implementing CNN models in TensorFlow, leveraging a large dataset of skin images.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">CNN</span>
+                        <span class="tech-tag">Deep Learning</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Body Part Age and Gender Prediction Model</h3>
+                    <p class="project-description">
+                        Created a model that can predict age and gender from any body part image using transfer learning 
+                        and CNN architectures. Trained using diverse image datasets and validated across various demographic groups.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Transfer Learning</span>
+                        <span class="tech-tag">CNN</span>
+                        <span class="tech-tag">Computer Vision</span>
+                        <span class="tech-tag">TensorFlow</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">AI-Generated Image Detection Model</h3>
+                    <p class="project-description">
+                        Designed a model to detect whether an image was generated by a specific AI model. 
+                        Utilized deep learning techniques to analyze image patterns and metadata for AI-generated content detection.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Deep Learning</span>
+                        <span class="tech-tag">Image Analysis</span>
+                        <span class="tech-tag">Pattern Recognition</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Advanced Web Scraping Tool</h3>
+                    <p class="project-description">
+                        Developed a tool with a user-friendly interface for efficient data extraction and analysis. 
+                        Implemented Python BeautifulSoup, Selenium for web scraping, and performed data analysis to extract meaningful insights.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">BeautifulSoup</span>
+                        <span class="tech-tag">Selenium</span>
+                        <span class="tech-tag">Data Analysis</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Malaria Detection Model</h3>
+                    <p class="project-description">
+                        Developed a TensorFlow-based machine learning model for malaria detection. 
+                        Achieved high accuracy in detecting malaria from microscopic images using advanced image processing techniques.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">Medical AI</span>
+                        <span class="tech-tag">Image Processing</span>
+                        <span class="tech-tag">Healthcare</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">AI Course Recommendation Model</h3>
+                    <p class="project-description">
+                        Created an AI model to recommend courses from all leading online course providers. 
+                        Integrated data from various platforms to provide personalized course recommendations based on user preferences.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Recommendation System</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">Data Integration</span>
+                        <span class="tech-tag">AI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills Page -->
+    <div id="skills" class="page skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">R</span>
+                        <span class="skill-item">SQL</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-bar"></i> Data Analysis & Visualization</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Tableau</span>
+                        <span class="skill-item">Power BI</span>
+                        <span class="skill-item">Matplotlib</span>
+                        <span class="skill-item">Seaborn</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> Machine Learning & AI</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">TensorFlow</span>
+                        <span class="skill-item">Deep Learning</span>
+                        <span class="skill-item">CNN</span>
+                        <span class="skill-item">Transfer Learning</span>
+                        <span class="skill-item">Prompt Engineering</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-spider"></i> Web Scraping & Data Extraction</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">BeautifulSoup</span>
+                        <span class="skill-item">Selenium</span>
+                        <span class="skill-item">Web Scraping</span>
+                        <span class="skill-item">Data Mining</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Development Tools</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Git</span>
+                        <span class="skill-item">GitHub</span>
+                        <span class="skill-item">Jupyter</span>
+                        <span class="skill-item">VS Code</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-line"></i> Finance & Business</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Financial Analysis</span>
+                        <span class="skill-item">Market Trends</span>
+                        <span class="skill-item">Investment Strategies</span>
+                        <span class="skill-item">Financial Planning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Certifications Page -->
+    <div id="certifications" class="page certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications & Education</h2>
+            
+            <div style="margin-bottom: 4rem;">
+                <h3 style="font-size: 2rem; color: #2d3748; margin-bottom: 2rem; text-align: center;">Education</h3>
+                <div class="cert-card" style="max-width: 600px; margin: 0 auto;">
+                    <h4 class="cert-title">Bachelor of Commerce (BCom)</h4>
+                    <p class="cert-provider">University of Delhi, India</p>
+                    <p class="cert-date">Graduated: June 2022 • Score: 70%</p>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="font-size: 2rem; color: #2d3748; margin-bottom: 2rem; text-align: center;">Professional Certifications</h3>
+                <div class="cert-grid">
+                    <div class="cert-card">
+                        <h4 class="cert-title">Data Science Course</h4>
+                        <p class="cert-provider">Udemy</p>
+                        <p class="cert-date">Completed: July 21, 2023</p>
+                    </div>
+
+                    <div class="cert-card">
+                        <h4 class="cert-title">R Programming for Data Analysis</h4>
+                        <p class="cert-provider">Alison</p>
+                        <p class="cert-date">Completed: July 2023</p>
+                    </div>
+
+                    <div class="cert-card">
+                        <h4 class="cert-title">Power BI</h4>
+                        <p class="cert-provider">Great Learning</p>
+                        <p class="cert-date">Completed: August 2023</p>
