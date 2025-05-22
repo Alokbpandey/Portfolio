@@ -5,149 +5,156 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alok Pandey | Resume</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-          },
-        },
-      },
-    }
-  </script>
   <style>
-    body {
-      min-height: 100vh;
+    html, body {
+      height: 100%;
     }
   </style>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@latest/font/lucide.css">
 </head>
-<body class="bg-gray-950 text-gray-100 font-sans leading-relaxed tracking-wide min-h-screen">
+<body class="bg-gray-900 text-gray-100 font-sans tracking-wide min-h-screen flex flex-col">
 
-  <div class="container mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-10">
-
-    <!-- Sidebar -->
-    <aside class="md:col-span-1 space-y-10">
-
-      <!-- Name & Role -->
+  <!-- Header -->
+  <header class="bg-gray-800 border-b border-gray-700 shadow-md py-6 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
       <div>
         <h1 class="text-4xl font-extrabold text-white">Alok Pandey</h1>
-        <p class="text-lg text-blue-400 mt-1">Research Assistant @JNU</p>
+        <p class="text-blue-400 text-lg mt-1">Research Assistant @ JNU</p>
       </div>
+    </div>
+  </header>
 
-      <!-- Objective -->
-      <div class="bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-700">
-        <h2 class="text-2xl font-semibold text-white mb-3">Objective</h2>
-        <p class="text-base">
-          AI researcher with expertise in ML and Economics; builds impactful models for healthcare, finance, and education; advancing via Stanford training.
-        </p>
-      </div>
+  <!-- Main Section -->
+  <div class="flex-grow">
+    <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-10">
 
-      <!-- Skills -->
-      <div class="bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-700">
-        <h2 class="text-2xl font-semibold text-white mb-3">Skills</h2>
-        <ul class="list-disc list-inside space-y-2 text-base">
-          <li>AI research, economic analysis</li>
-          <li>Econometric Modeling, GenAI</li>
-          <li>Python, R, SQL, C++, Scala</li>
-          <li>Git, GitHub, DSA, Web Dev</li>
-        </ul>
-      </div>
+      <!-- Sidebar -->
+      <aside class="md:col-span-1 space-y-10">
+        <!-- Objective -->
+        <section class="bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-700">
+          <h2 class="text-2xl font-semibold mb-3">Objective</h2>
+          <p class="text-gray-300">
+            AI researcher with expertise in ML and Economics; builds impactful models for healthcare, finance, and education; advancing via Stanford training.
+          </p>
+        </section>
 
-      <!-- Contact -->
-      <div class="bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-700">
-        <h2 class="text-2xl font-semibold text-white mb-3">Contact</h2>
-        <p class="text-base mb-2">📍 B 11 Flat no 2, RPS Savana, Faridabad, Haryana 121001</p>
-        <p class="text-base mb-2">📞 +91 8858148104</p>
-        <p class="text-base mb-2">
-          📧 <a href="mailto:alokpand8858148@gmail.com" class="text-blue-400 hover:underline">alokpand8858148@gmail.com</a>
-        </p>
-      </div>
+        <!-- Skills -->
+        <section class="bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-700">
+          <h2 class="text-2xl font-semibold mb-3">Skills</h2>
+          <ul class="list-disc list-inside text-gray-300 space-y-2">
+            <li>AI research, economic analysis</li>
+            <li>Econometric Modeling, GenAI</li>
+            <li>Python, R, SQL, C++, Scala</li>
+            <li>Git, GitHub, DSA, Web Dev</li>
+          </ul>
+        </section>
 
-      <!-- Social Links -->
-      <div class="bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-700">
-        <h2 class="text-2xl font-semibold text-white mb-4">Social Links</h2>
-        <div class="flex flex-wrap gap-4 text-lg items-center">
-          <a href="https://www.linkedin.com/in/alokpandey25" class="flex items-center gap-2 hover:text-blue-400">
-            <i class="lucide lucide-linkedin"></i> LinkedIn
-          </a>
-          <a href="https://github.com/alokpandey25" class="flex items-center gap-2 hover:text-blue-400">
-            <i class="lucide lucide-github"></i> GitHub
-          </a>
-          <a href="https://www.kaggle.com/alokpandey25" class="flex items-center gap-2 hover:text-blue-400">
-            <i class="lucide lucide-bar-chart-horizontal"></i> Kaggle
-          </a>
-          <a href="https://medium.com/@alokpandey25" class="flex items-center gap-2 hover:text-blue-400">
-            <i class="lucide lucide-pen-line"></i> Medium
-          </a>
-          <a href="https://huggingface.co/alokpandey25" class="flex items-center gap-2 hover:text-blue-400">
-            <i class="lucide lucide-brain-circuit"></i> Hugging Face
-          </a>
-        </div>
-      </div>
-    </aside>
+        <!-- Contact -->
+        <section class="bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-700">
+          <h2 class="text-2xl font-semibold mb-3">Contact</h2>
+          <address class="not-italic space-y-2 text-gray-300 text-base">
+            <p>📍 B 11 Flat no 2, RPS Savana, Faridabad, Haryana 121001</p>
+            <p>📞 +91 8858148104</p>
+            <p>
+              📧 <a href="mailto:alokpand8858148@gmail.com" class="text-blue-400 hover:underline">alokpand8858148@gmail.com</a>
+            </p>
+          </address>
+          <div class="flex flex-col gap-3 mt-3 text-base text-blue-400">
+    <a href="https://www.linkedin.com/in/alokpandey25" class="flex items-center hover:underline">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.762 0-5 2.239-5 5v14c0 2.761..."/></svg>
+    LinkedIn
+  </a>
+  <a href="https://github.com/alokpandey25" class="flex items-center hover:underline">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.649.5.5 5.649.5 12c0 5.084..."/></svg>
+    GitHub
+  </a>
+  <a href="https://www.kaggle.com/alokpandey25" class="flex items-center hover:underline">
+    <img src="https://www.kaggle.com/static/images/site-logo.png" alt="Kaggle" class="h-5 w-5 mr-2 rounded-full">
+    Kaggle
+  </a>
+  <a href="https://medium.com/@alokpandey25" class="flex items-center hover:underline">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M4.8 5c-.4 0-.8.3-.8.7v12.6c0 .4.4.7.8.7h14.4c.4 0 .8-.3.8-.7V5.7c0-.4-.4-.7-.8-.7H4.8zm.6 2.3h1.4l2.8 3.7 2.8-3.7h1.4v10.4h-1.4V9.4l-2.8 3.7-2.8-3.7v7.9H5.4V7.3z"/></svg>
+    Medium
+  </a>
+  <a href="https://huggingface.co/alokpandey25" class="flex items-center hover:underline">
+    <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face" class="h-5 w-5 mr-2">
+    Hugging Face
+  </a>
+</div>
 
-    <!-- Main -->
-    <main class="md:col-span-3 space-y-16">
+        </section>
+      </aside>
 
-      <!-- Experience -->
-      <section>
-        <h2 class="text-3xl text-blue-400 font-bold mb-6 border-b border-gray-700 pb-2">Experience</h2>
-        <div class="space-y-8 text-lg">
-          <!-- Each experience -->
-          <!-- Example -->
-          <div>
-            <h3 class="text-white font-bold text-xl">Member | OpenAI Forum</h3>
-            <p class="text-gray-400 text-base mb-2">Sep 2024 – Present</p>
-            <p>Contributed to technical discussions and tested emerging AI tools within the OpenAI community.</p>
+      <!-- Main Content -->
+      <main class="md:col-span-3 space-y-16">
+
+        <!-- Experience -->
+        <section>
+          <h2 class="text-3xl text-blue-400 font-bold mb-6 border-b border-gray-700 pb-2">Experience</h2>
+          <div class="space-y-8 text-lg text-gray-300">
+            <!-- Example Experience Entry -->
+            <article>
+              <h3 class="text-white font-bold text-xl">Member | OpenAI Forum</h3>
+              <p class="text-gray-400 text-sm mb-1">Sep 2024 – Present</p>
+              <p>Contributed to technical discussions and tested emerging AI tools within the OpenAI community.</p>
+            </article>
+
+            <article>
+              <h3 class="text-white font-bold text-xl">Program Associate | Teach For India</h3>
+              <p class="text-gray-400 text-sm mb-1">Apr 2025 – Present</p>
+              <p>Designed interactive learning games and implemented data-led strategies to improve student performance.</p>
+            </article>
+
+            <!-- Add others similarly -->
+            <article>
+              <h3 class="text-white font-bold text-xl">Research Assistant | JNU</h3>
+              <p class="text-gray-400 text-sm mb-1">Jul 2024 – Present</p>
+              <p>Developed ML models to forecast financial impact of climate change using large datasets.</p>
+            </article>
+
+            <article>
+              <h3 class="text-white font-bold text-xl">Prompt Engineer | NVIDIA</h3>
+              <p class="text-gray-400 text-sm mb-1">Mar 2024 – Apr 2024</p>
+              <p>Engineered prompts to enhance LLM output and interaction quality.</p>
+            </article>
+
+            <article>
+              <h3 class="text-white font-bold text-xl">Prompt Engineer | Scale AI</h3>
+              <p class="text-gray-400 text-sm mb-1">Jan 2024 – Mar 2024</p>
+              <p>Built prompt libraries and integrated GPT tools to improve AI deployment.</p>
+            </article>
+
+            <article>
+              <h3 class="text-white font-bold text-xl">Prompt Engineer | Soul AI</h3>
+              <p class="text-gray-400 text-sm mb-1">Jun 2023 – Jun 2024</p>
+              <p>Created finance-specific prompts to strengthen AI-driven financial predictions.</p>
+            </article>
+
+            <article>
+              <h3 class="text-white font-bold text-xl">Financial Consultant | ICICI Prudential</h3>
+              <p class="text-gray-400 text-sm mb-1">Jul 2022 – Feb 2023</p>
+              <p>Delivered investment solutions and led a high-performing advisory team.</p>
+            </article>
           </div>
-          <!-- Add other jobs as needed -->
-          <div>
-            <h3 class="text-white font-bold text-xl">Program Associate | Teach For India</h3>
-            <p class="text-gray-400 text-base mb-2">Apr 2025 – Present</p>
-            <p>Designed interactive learning games and implemented data-led strategies to improve student performance.</p>
-          </div>
-          <div>
-            <h3 class="text-white font-bold text-xl">Research Assistant | JNU</h3>
-            <p class="text-gray-400 text-base mb-2">Jul 2024 – Present</p>
-            <p>Developed ML models to forecast financial impact of climate change using large datasets.</p>
-          </div>
-          <div>
-            <h3 class="text-white font-bold text-xl">Prompt Engineer | NVIDIA</h3>
-            <p class="text-gray-400 text-base mb-2">Mar 2024 – Apr 2024</p>
-            <p>Engineered prompts to enhance LLM output and interaction quality.</p>
-          </div>
-          <div>
-            <h3 class="text-white font-bold text-xl">Prompt Engineer | Scale AI</h3>
-            <p class="text-gray-400 text-base mb-2">Jan 2024 – Mar 2024</p>
-            <p>Built prompt libraries and integrated GPT tools to improve AI deployment.</p>
-          </div>
-          <div>
-            <h3 class="text-white font-bold text-xl">Prompt Engineer | Soul AI</h3>
-            <p class="text-gray-400 text-base mb-2">Jun 2023 – Jun 2024</p>
-            <p>Created finance-specific prompts to strengthen AI-driven financial predictions.</p>
-          </div>
-          <div>
-            <h3 class="text-white font-bold text-xl">Financial Consultant | ICICI Prudential</h3>
-            <p class="text-gray-400 text-base mb-2">Jul 2022 – Feb 2023</p>
-            <p>Delivered investment solutions and led a high-performing advisory team.</p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Education -->
-      <section>
-        <h2 class="text-3xl text-blue-400 font-bold mb-6 border-b border-gray-700 pb-2">Education</h2>
-        <ul class="space-y-5 text-lg">
-          <li><strong class="text-white">Master of Commerce (MCom)</strong> – Delhi School of Economics (2024)</li>
-          <li><strong class="text-white">Bachelor of Commerce (BCom)</strong> – University of Delhi (2022)</li>
-          <li><strong class="text-white">12th Grade</strong> – MGM Hr. Sec. School, Raipur (CBSE, 2019)</li>
-        </ul>
-      </section>
-    </main>
+        <!-- Education -->
+        <section>
+          <h2 class="text-3xl text-blue-400 font-bold mb-6 border-b border-gray-700 pb-2">Education</h2>
+          <ul class="space-y-5 text-lg text-gray-300">
+            <li><strong class="text-white">Master of Commerce (MCom)</strong> – Delhi School of Economics (2024)</li>
+            <li><strong class="text-white">Bachelor of Commerce (BCom)</strong> – University of Delhi (2022)</li>
+            <li><strong class="text-white">12th Grade</strong> – MGM Hr. Sec. School, Raipur (CBSE, 2019)</li>
+          </ul>
+        </section>
 
+      </main>
+    </div>
   </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-center text-sm text-gray-400 py-4 border-t border-gray-700">
+    © 2025 Alok Pandey. All rights reserved.
+  </footer>
 
 </body>
 </html>
