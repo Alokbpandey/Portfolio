@@ -1,43 +1,88 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #111827;
-  color: white;
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-.container {
-  max-width: 800px;
-  margin: auto;
+body {
+  background: #ffffff;
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 2rem;
 }
 
-h1 {
-  font-size: 3rem;
-  margin-bottom: 0.25rem;
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  gap: 2rem;
+  width: 100%;
 }
 
-h2 {
-  color: #9ca3af;
-  margin-bottom: 1.5rem;
-}
-
-.section {
+header {
+  width: 100%;
+  text-align: center;
   margin-bottom: 2rem;
 }
 
-h3 {
-  border-bottom: 2px solid #374151;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
+header h1 {
+  font-size: 2.5rem;
+  color: #000;
 }
 
-a {
-  color: #60a5fa;
+header p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.glass-box {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+.left {
+  flex: 1;
+}
+
+.right {
+  flex: 2;
+}
+
+h2 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: #111;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li {
+  margin-bottom: 0.75rem;
+  color: #444;
+}
+
+.socials a {
+  color: #007bff;
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
+footer {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #888;
 }
-
