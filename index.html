@@ -590,33 +590,7 @@
             transition: width 0.3s ease;
         }
     </style>
-</head>
-<script>
-function showPage(pageId) {
-    // Hide all pages
-    document.querySelectorAll('.page').forEach(function(page) {
-        page.classList.remove('active');
-    });
-    // Show the requested page
-    document.getElementById(pageId).classList.add('active');
-    // Close mobile menu if open
-    document.getElementById('navMenu').classList.remove('active');
-}
-
-// Navigation event listeners
-document.querySelectorAll('.nav-link').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const page = this.getAttribute('data-page');
-        if(page) showPage(page);
-    });
-});
-
-// Hamburger menu toggle
-function toggleMenu() {
-    document.getElementById('navMenu').classList.toggle('active');
-}
-</script>    
+</head>    
 <body>
     <div class="scroll-indicator" id="scrollIndicator"></div>
     
