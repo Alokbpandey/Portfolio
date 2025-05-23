@@ -590,7 +590,7 @@
             transition: width 0.3s ease;
         }
     </style>
-</head>    
+</head>
 <body>
     <div class="scroll-indicator" id="scrollIndicator"></div>
     
@@ -874,3 +874,61 @@
                         <h4 class="cert-title">Power BI</h4>
                         <p class="cert-provider">Great Learning</p>
                         <p class="cert-date">Completed: August 2023</p>
+                    </div>
+                </div>    
+            </div> 
+        </div>
+    </div>    
+
+<!-- JavaScript for navigation and effects -->
+    <script>
+        // Navigation and page switching
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            if(window.innerWidth < 769) {
+                document.getElementById('navMenu').classList.remove('active');
+            }
+            window.scrollTo(0, 0);
+        }
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const page = this.getAttribute('data-page');
+                if(page) showPage(page);
+            });
+        });
+
+        // Hamburger menu for mobile
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
+
+        // Floating particles effect
+        function createParticles() {
+            const particles = document.getElementById('particles');
+            if (!particles) return;
+            for(let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.width = `${Math.random() * 8 + 4}px`;
+                particle.style.height = particle.style.width;
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.animationDelay = `${Math.random() * 6}s`;
+                particle.style.opacity = Math.random() * 0.4 + 0.1;
+                particles.appendChild(particle);
+            }
+        }
+        createParticles();
+
+        // Scroll indicator
+        window.addEventListener('scroll', function() {
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scroll = (window.scrollY / docHeight) * 100;
+            document.getElementById('scrollIndicator').style.width = scroll + '%';
+        });
+    </script>
+</body>
+</html>    
